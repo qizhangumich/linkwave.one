@@ -16,27 +16,43 @@ export default function Home() {
       <section className="pt-48 pb-32 px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight mb-6">
-            Finding signal across borders. Turning structure into opportunity.
+            Clarity before execution.
           </h1>
           <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl">
-            An exploration-driven platform for connecting and structuring cross-border opportunities.
+            Linkwave works with operators facing cross-border decisions where judgment matters more than frameworks.
           </p>
         </div>
       </section>
 
-      {/* What This Is - And Is Not */}
+      {/* What Linkwave Is / Is Not */}
       <section className="py-24 px-6 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-8">What this is</h2>
-          <div className="space-y-6 text-neutral-700 dark:text-neutral-300">
+          <h2 className="text-2xl font-semibold mb-8">What Linkwave is</h2>
+          <div className="space-y-6 text-neutral-700 dark:text-neutral-300 mb-12">
             <p className="text-lg leading-relaxed">
-              linkwave.one is an experiment in cross-border pattern-matching. It exists because interesting opportunities rarely sit neatly inside one geography, one industry, or one familiar framework.
+              A place to think through cross-border decisions before they become commitments.
             </p>
             <p className="text-lg leading-relaxed">
-              The work here takes three forms: finding and characterizing opportunities that others miss, structuring deals or projects in ways that account for real-world constraints, and staying engaged through execution. The emphasis is on judgment and alignment rather than canned solutions.
+              A space to slow down thinking before irreversible moves.
             </p>
             <p className="text-lg leading-relaxed">
-              This is not a consulting firm. There are no service menus, no methodology decks, no guarantees. The platform is intentionally open-ended — it evolves as the underlying opportunities evolve.
+              A collaborative environment for examining tradeoffs that do not fit slides.
+            </p>
+          </div>
+
+          <h2 className="text-2xl font-semibold mb-8">What Linkwave is not</h2>
+          <div className="space-y-4 text-neutral-700 dark:text-neutral-300">
+            <p className="text-lg leading-relaxed">
+              A consulting firm.
+            </p>
+            <p className="text-lg leading-relaxed">
+              A service menu.
+            </p>
+            <p className="text-lg leading-relaxed">
+              A shortcut to outcomes.
+            </p>
+            <p className="text-lg leading-relaxed">
+              A replacement for responsibility.
             </p>
           </div>
         </div>
@@ -46,31 +62,19 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold mb-12">How we work</h2>
-          <div className="space-y-12">
-            <div>
-              <h3 className="text-lg font-medium mb-3">Exploration first</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Most cross-border situations are messier than they appear from the outside. Time spent mapping incentives, understanding constraints, and finding the real friction points usually saves multiples of that time later.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium mb-3">Structure over pitch</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                The art is in arranging things so that the right people have the right incentives at the right time. Sometimes that looks like a deal structure. Sometimes it looks like a conversation. Sometimes it looks like walking away.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium mb-3">Alignment over transactions</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                The best work comes from long-term alignment with people who think in decades. The platform is selective about who to work with because the opportunities are scarce and the stakes are real.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium mb-3">Comfort with uncertainty</h3>
-              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Cross-border work is inherently uncertain. Regulatory environments shift. Counterparties change their minds. The goal is to build optionality and adapt, not to pretend that everything is knowable in advance.
-              </p>
-            </div>
+          <div className="prose prose-neutral dark:prose-invert max-w-none">
+            <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
+              Conversations begin with whatever is on the table — a situation, a tension, a decision that will not wait for perfect information.
+            </p>
+            <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
+              Uncertainty is treated as material, not as something to be managed away. The goal is to see what is actually at stake, including what cannot be known.
+            </p>
+            <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed mb-8">
+              Decisions are slowed when that slowing creates value. Sometimes clarity emerges from stillness. Sometimes it emerges from disagreement that is allowed to breathe.
+            </p>
+            <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
+              The posture is collaborative, not advisory. You know your context better than anyone else. The work is done together, not to you.
+            </p>
           </div>
         </div>
       </section>
@@ -78,33 +82,33 @@ export default function Home() {
       {/* Exploration Tracks */}
       <section className="py-24 px-6 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-semibold mb-4">Exploration tracks</h2>
+          <h2 className="text-2xl font-semibold mb-4">Areas of ongoing attention</h2>
           <p className="text-neutral-600 dark:text-neutral-400 mb-12">
-            These are areas of active focus — not fixed service offerings, but patterns that come up repeatedly and where there's depth of experience.
+            These are not services. They are places where tradeoffs show up repeatedly.
           </p>
           <div className="space-y-10">
             <div className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-6">
-              <h3 className="text-lg font-medium mb-3">Cross-border market structure</h3>
+              <h3 className="text-lg font-medium mb-3">Alignment under time pressure</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Finding and characterizing opportunities that span jurisdictions — regulatory gaps, information asymmetries, incentive misalignments. The work often looks like: mapping who actually decides what, where the frictions are, and what structures would align everyone's interests.
+                Situations where long-term alignment and short-term pressure pull in opposite directions. The work involves finding arrangements that respect both.
               </p>
             </div>
             <div className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-6">
-              <h3 className="text-lg font-medium mb-3">Technology and infrastructure in underserved markets</h3>
+              <h3 className="text-lg font-medium mb-3">Execution across jurisdictions</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Real infrastructure plays — power, logistics, connectivity — where the unit economics work but the execution complexity filters out most capital. Also: technology businesses that solve actual problems in these environments rather than importing Silicon Valley assumptions.
+                Decisions that must survive contact with multiple regulatory environments, incentive systems, and cultural contexts. The question is what structures actually hold up.
               </p>
             </div>
             <div className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-6">
-              <h3 className="text-lg font-medium mb-3">Capital formation across jurisdictions</h3>
+              <h3 className="text-lg font-medium mb-3">Capital that accounts for reality</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Structuring capital in ways that account for regulatory reality, tax efficiency, and the actual incentives of all parties. This is not about raising rounds — it's about designing financial structures that survive contact with the real world.
+                Financial structures that work given actual constraints, not theoretical ones. This includes tax, regulation, and the real incentives of every party at the table.
               </p>
             </div>
             <div className="border-l-2 border-neutral-300 dark:border-neutral-700 pl-6">
-              <h3 className="text-lg font-medium mb-3">Situational complexity</h3>
+              <h3 className="text-lg font-medium mb-3">Situations that resist templates</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                Situations that don't fit standard templates — family offices with unconventional constraints, companies navigating inflection points, anything that involves multiple jurisdictions and competing interests. The common thread is high complexity and low template-fit.
+                Contexts where standard frameworks break down — family dynamics, unconventional constraints, competing interests across borders. The work is custom because the situation is.
               </p>
             </div>
           </div>
@@ -116,7 +120,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold mb-4">Who we work with</h2>
           <p className="text-neutral-600 dark:text-neutral-400 mb-12">
-            The partners who tend to be a good fit share certain characteristics.
+            Described by decision posture, not title.
           </p>
           <div className="space-y-8">
             <div className="flex gap-4">
@@ -124,9 +128,9 @@ export default function Home() {
                 1
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-2">Operators, not tourists</h3>
+                <h3 className="text-lg font-medium mb-2">People carrying downside personally</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  People who have been inside the situations they're describing. Who understand that the map is not the territory. Who don't expect guarantees.
+                  When you have something real at stake, generic advice becomes dangerous. You need thinking that accounts for your actual exposure.
                 </p>
               </div>
             </div>
@@ -135,9 +139,9 @@ export default function Home() {
                 2
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-2">Long-term thinkers</h3>
+                <h3 className="text-lg font-medium mb-2">Operators with partial information</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  People who think in decades, not quarters. Who understand that the best opportunities often look messy at the beginning. Who are building something durable rather than optimizing for a flip.
+                  You will never have complete information. The question is how to decide well anyway, and how to structure arrangements that remain robust as you learn more.
                 </p>
               </div>
             </div>
@@ -146,9 +150,9 @@ export default function Home() {
                 3
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-2">Comfortable with ambiguity</h3>
+                <h3 className="text-lg font-medium mb-2">Partners facing non-reversible commitments</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  People who understand that cross-border work involves uncertainty and that the path often changes as you learn more. Who prefer honest assessment over false confidence.
+                  When a decision cannot be easily undone, the quality of the thinking beforehand matters disproportionately. This is where the work focuses.
                 </p>
               </div>
             </div>
@@ -157,9 +161,9 @@ export default function Home() {
                 4
               </div>
               <div>
-                <h3 className="text-lg font-medium mb-2">Decision-makers</h3>
+                <h3 className="text-lg font-medium mb-2">Teams navigating ambiguity without clean exits</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  People who can actually make things happen. Whether that's capital allocation, operational authority, or the ability to open doors that stay open.
+                  Sometimes the hard part is not finding the right answer — it is understanding what you are actually choosing between, and what happens after.
                 </p>
               </div>
             </div>
@@ -172,7 +176,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-semibold mb-6">Geography</h2>
           <p className="text-lg text-neutral-700 dark:text-neutral-300 leading-relaxed">
-            The platform is global in scope and agnostic about regions. Opportunities come from where they are, not from where we wish they were. Recent work has touched Southeast Asia, the Middle East, parts of Africa, and various points in between — but the common thread is interesting situations, not specific geographies.
+            Geography follows the situation. Work spans jurisdictions and regions. Location matters when it introduces constraints — not as a label.
           </p>
         </div>
       </section>
@@ -180,15 +184,14 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-semibold mb-6">Let's talk</h2>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto mb-8 leading-relaxed">
-            If you're working on something that crosses borders and resists simple categorization, that's probably worth a conversation. No decks required — just a description of what you're seeing and what feels hard about it.
+            If there is something you are thinking through, we can talk.
           </p>
           <a
-            href="mailto:hello@linkwave.one"
+            href="mailto:jeremy@linkwave.one"
             className="inline-block px-8 py-3 bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 rounded-lg font-medium hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
           >
-            hello@linkwave.one
+            jeremy@linkwave.one
           </a>
         </div>
       </section>
@@ -202,30 +205,59 @@ export default function Home() {
 
       {/* Tone Guardrails - Hidden comment for future editors */}
       {/*
-        === TONE AND LANGUAGE GUARDRAILS ===
+        === LINKWAVE TONE AND LANGUAGE GUARDRAILS ===
 
         When editing this site, respect these principles:
 
-        1. Sound like a real operator, not a consultant
-           - Avoid: "we provide solutions", "our methodology", "best-in-class"
-           - Prefer: direct description of what actually happens
+        1. Core Positioning (Non-Negotiable)
+           Linkwave is NOT a consultancy, platform, or service catalogue.
+           Linkwave is: A place to think through cross-border decisions BEFORE they become commitments.
 
-        2. Acknowledge uncertainty instead of removing it
-           - If a sentence sounds too polished, make it more human
-           - If it sounds like a Big 4 consulting site, rewrite it
+        2. Role Definition
+           The voice is a senior operator and judgment partner — not a consultant.
+           - Has sat inside execution, not just advisory roles
+           - Does not need to prove intelligence
+           - Does not simplify reality to sound helpful
 
-        3. No fixed services, no guarantees, no geographic branding
-           - This is a doorway, not a funnel
-           - The site should work even if the business evolves significantly
+        3. Primary Reader
+           Write for people who:
+           - Face decisions that cannot be easily reversed
+           - Operate across borders, jurisdictions, or systems
+           - Hold personal or reputational downside
+           - Are uncomfortable outsourcing judgment
 
-        4. Keep it grounded
-           - Respect real-world constraints (regulation, incentives, execution)
-           - Emphasize judgment over frameworks
+        4. Core Intent
+           The goal is NOT conversion, persuasion, scale, or visibility.
+           The goal is for the right reader to feel:
+           - "This feels calm."
+           - "This understands where things break."
+           - "I wouldn't be oversold here."
+           - "I could think out loud with this person."
 
-        5. Test every change
-           - No sentence should start with "We offer…"
-           - No section should imply fixed services
-           - The tone should feel closer to an experienced operator than a consultant
+        5. Forbidden Words/Concepts
+           - best-in-class, world-class, seamless, efficient
+           - proven framework, guaranteed outcomes
+           - access as a selling point
+
+        6. Guiding Rule
+           "If it sounds confident, soften it.
+            If it sounds smooth, roughen it.
+            If it sounds complete, reopen it."
+
+        7. Structure Rules
+           - No steps, phases, diagrams, or frameworks in "How We Work"
+           - Exploration tracks framed as areas of tension, not services
+           - Who we work with described by how they decide, not who they are
+           - Geography follows the situation (factual, not branded)
+
+        8. Emergency Rewrite Instruction
+           If output starts to sound like consulting or marketing:
+           "Rewrite this as if you have seen deals fail, partnerships break,
+            and decisions age badly. Remove certainty. Keep responsibility."
+
+        9. Single Guiding Principle
+           Linkwave does not sell answers.
+           Linkwave protects the space where good decisions are still possible.
       */}
     </main>
   );
