@@ -103,6 +103,16 @@ export async function GET(request: NextRequest) {
   const nonce = searchParams.get('nonce');
   const echostr = searchParams.get('echostr');
 
+  // 详细日志 - 调试用
+  console.log('=== WeCom Webhook GET Request ===');
+  console.log('msg_signature:', msg_signature);
+  console.log('timestamp:', timestamp);
+  console.log('nonce:', nonce);
+  console.log('echostr:', echostr);
+  console.log('WECOM_TOKEN:', WECOM_TOKEN ? 'SET' : 'MISSING');
+  console.log('WECOM_ENCODING_AES_KEY:', WECOM_ENCODING_AES_KEY ? 'SET (' + WECOM_ENCODING_AES_KEY.length + ' chars)' : 'MISSING');
+  console.log('WECOM_CORP_ID:', WECOM_CORP_ID ? 'SET' : 'MISSING');
+
   // 检查环境变量
   if (!WECOM_TOKEN || !WECOM_ENCODING_AES_KEY || !WECOM_CORP_ID) {
     console.error('Missing WeCom environment variables');
@@ -111,10 +121,17 @@ export async function GET(request: NextRequest) {
 
   // 检查必需参数
   if (!msg_signature || !timestamp || !nonce || !echostr) {
+    console.error('Missing parameters');
     return new NextResponse('Missing parameters', { status: 400 });
   }
 
   try {
+    // 计算签名用于调试
+    const computedSignature = sha1Signature(WECOM_TOKEN, timestamp, nonce, echostr);
+    console.log('Expected signature:', computedSignature);
+    console.log('Received signature:', msg_signature);
+    console.log('Signature match:', computedSignature === msg_signature);
+
     // 验证签名
     const signatureValid = verifySignature(
       WECOM_TOKEN,
@@ -133,6 +150,8 @@ export async function GET(request: NextRequest) {
     const decryptedMsg = decryptWeComMessage(echostr, WECOM_ENCODING_AES_KEY);
 
     console.log('WeCom URL verification success, decrypted msg:', decryptedMsg);
+    console.log('Response length:', decryptedMsg.length);
+    console.log('===============================');
 
     // 返回纯文本，不带引号、不带换行、不带 BOM
     return new NextResponse(decryptedMsg, {
