@@ -53,8 +53,9 @@ function pkcs7Unpadding(buffer: Uint8Array): Uint8Array {
 
 // =====================================================
 // 辅助函数：AES-CBC 解密企业微信消息
+// 返回: { msg: string, corpId: string }
 // =====================================================
-function decryptWeComMessage(encrypt: string, encodingAesKey: string): string {
+function decryptWeComMessage(encrypt: string, encodingAesKey: string): { msg: string; corpId: string } {
   const aesKey = decodeBase64AesKey(encodingAesKey);
 
   // IV = AES Key (企业微信规定)
@@ -76,15 +77,12 @@ function decryptWeComMessage(encrypt: string, encodingAesKey: string): string {
   decrypted = pkcs7Unpadding(decrypted);
 
   // 解析格式: 16字节random + 4字节msg_len + msg + corpId
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const random = decrypted.subarray(0, 16);
   const msgLenBuf = Buffer.from(decrypted.subarray(16, 20));
   const msgLen = msgLenBuf.readUInt32BE(0);
   const msg = Buffer.from(decrypted.subarray(20, 20 + msgLen)).toString('utf8');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const corpId = Buffer.from(decrypted.subarray(20 + msgLen)).toString('utf8');
 
-  return msg;
+  return { msg, corpId };
 }
 
 // =====================================================
@@ -110,10 +108,10 @@ export async function GET(request: NextRequest) {
   console.log('msg_signature:', msg_signature);
   console.log('timestamp:', timestamp);
   console.log('nonce:', nonce);
-  console.log('echostr:', echostr);
-  console.log('WECOM_TOKEN:', WECOM_TOKEN ? 'SET' : 'MISSING');
+  console.log('echostr:', echostr?.substring(0, 50) + '...');
+  console.log('WECOM_TOKEN:', WECOM_TOKEN ? 'SET (' + WECOM_TOKEN + ')' : 'MISSING');
   console.log('WECOM_ENCODING_AES_KEY:', WECOM_ENCODING_AES_KEY ? 'SET (' + WECOM_ENCODING_AES_KEY.length + ' chars)' : 'MISSING');
-  console.log('WECOM_CORP_ID:', WECOM_CORP_ID ? 'SET' : 'MISSING');
+  console.log('WECOM_CORP_ID:', WECOM_CORP_ID ? 'SET (' + WECOM_CORP_ID + ')' : 'MISSING');
 
   // 检查环境变量
   if (!WECOM_TOKEN || !WECOM_ENCODING_AES_KEY || !WECOM_CORP_ID) {
@@ -149,10 +147,20 @@ export async function GET(request: NextRequest) {
     }
 
     // 解密 echostr
-    const decryptedMsg = decryptWeComMessage(echostr, WECOM_ENCODING_AES_KEY);
+    const { msg: decryptedMsg, corpId } = decryptWeComMessage(echostr, WECOM_ENCODING_AES_KEY);
 
-    console.log('WeCom URL verification success, decrypted msg:', decryptedMsg);
-    console.log('Response length:', decryptedMsg.length);
+    console.log('Decrypted msg:', decryptedMsg);
+    console.log('Decrypted CorpID:', corpId);
+    console.log('Expected CorpID:', WECOM_CORP_ID);
+    console.log('CorpID match:', corpId === WECOM_CORP_ID);
+
+    // 验证 CorpID
+    if (corpId !== WECOM_CORP_ID) {
+      console.error('CorpID mismatch');
+      return new NextResponse('CorpID mismatch', { status: 401 });
+    }
+
+    console.log('WeCom URL verification success!');
     console.log('===============================');
 
     // 返回纯文本，不带引号、不带换行、不带 BOM
@@ -191,6 +199,9 @@ export async function POST(request: NextRequest) {
     // 读取请求体 (XML)
     const rawBody = await request.text();
 
+    console.log('=== WeCom Webhook POST Request ===');
+    console.log('Raw body:', rawBody.substring(0, 200));
+
     // 提取 Encrypt 字段
     const encrypt = extractEncryptFromXml(rawBody);
 
@@ -214,11 +225,10 @@ export async function POST(request: NextRequest) {
     }
 
     // 解密消息
-    const decryptedXml = decryptWeComMessage(encrypt, WECOM_ENCODING_AES_KEY);
+    const { msg: decryptedXml, corpId } = decryptWeComMessage(encrypt, WECOM_ENCODING_AES_KEY);
 
-    console.log('=== WeCom Message Received ===');
     console.log('Decrypted XML:', decryptedXml);
-    console.log('=============================');
+    console.log('CorpID:', corpId);
 
     // TODO: 根据业务需求处理消息
     // 可以解析 decryptedXml 中的 ToUserName, FromUserName, CreateTime, MsgType, Content 等字段
