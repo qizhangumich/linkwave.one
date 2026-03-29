@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createHash, createDecipheriv } from 'crypto';
 
 // =====================================================
-// 环境变量
+// 环境变量 — always .trim() to guard against invisible
+// trailing newlines (\n) from copy-pasting into Vercel UI
 // =====================================================
-const WECOM_TOKEN = process.env.WECOM_TOKEN || '';
-const WECOM_ENCODING_AES_KEY = process.env.WECOM_ENCODING_AES_KEY || '';
-const WECOM_CORP_ID = process.env.WECOM_CORP_ID || '';
+const WECOM_TOKEN            = (process.env.WECOM_TOKEN            || '').trim();
+const WECOM_ENCODING_AES_KEY = (process.env.WECOM_ENCODING_AES_KEY || '').trim();
+const WECOM_CORP_ID          = (process.env.WECOM_CORP_ID          || '').trim();
 
 // =====================================================
 // 辅助函数：SHA1 签名
