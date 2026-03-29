@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createHash, createDecipheriv, randomBytes } from 'crypto';
+import { createHash, createDecipheriv } from 'crypto';
 
 // =====================================================
 // 环境变量
@@ -76,10 +76,12 @@ function decryptWeComMessage(encrypt: string, encodingAesKey: string): string {
   decrypted = pkcs7Unpadding(decrypted);
 
   // 解析格式: 16字节random + 4字节msg_len + msg + corpId
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const random = decrypted.subarray(0, 16);
   const msgLenBuf = Buffer.from(decrypted.subarray(16, 20));
   const msgLen = msgLenBuf.readUInt32BE(0);
   const msg = Buffer.from(decrypted.subarray(20, 20 + msgLen)).toString('utf8');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const corpId = Buffer.from(decrypted.subarray(20 + msgLen)).toString('utf8');
 
   return msg;
