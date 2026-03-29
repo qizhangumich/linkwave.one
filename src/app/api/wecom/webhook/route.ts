@@ -36,7 +36,12 @@ function verifySignature(
 // 企业微信的 EncodingAESKey 是 43 字符，需要补 '=' 后解码得到 32 字节密钥
 // =====================================================
 function decodeBase64AesKey(encodingAesKey: string): Buffer {
-  const base64 = encodingAesKey + '=';
+  // Defensively clean the key before decoding:
+  // 1. Trim whitespace (guards against accidental trailing spaces in env var)
+  // 2. Strip any existing '=' padding (guards against accidental copy-paste with padding)
+  // 3. Add exactly one '=' to make it valid base64 (43 chars → 44 chars → 32 bytes)
+  const cleaned = encodingAesKey.trim().replace(/=+$/, '');
+  const base64 = cleaned + '=';
   return Buffer.from(base64, 'base64');
 }
 
